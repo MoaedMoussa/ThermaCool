@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThermaCool Cooling Vest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .company-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .product-section {
+            padding: 30px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-title {
+            font-size: 26px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .product-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .features {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .features h3 {
+            color: #2c3e50;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .features li {
+            padding: 5px 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .features li:before {
+            content: "\2713 ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .price-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .price-label {
+            font-size: 18px;
+            color: #555;
+            font-weight: 500;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .currency-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .currency-btn {
+            padding: 10px 20px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+            transition: all 0.3s;
+        }
+
+        .currency-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .currency-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+        }
+
+        .price-display {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .price {
+            font-size: 42px;
+            color: #667eea;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .price-note {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .purchase-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .purchase-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .purchase-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-container {
+            display: none;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        .form-title {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .submit-btn,
+        .back-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-btn {
+            background: #e0e0e0;
+            color: #555;
+        }
+
+        .back-btn:hover {
+            background: #d0d0d0;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 60px;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+
+        .success-text {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .success-subtext {
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="company-name">THERMACOOL</div>
+            <div class="tagline">Keeping Oilfield Workers Cool Under Pressure</div>
+        </div>
+
+        <div class="product-section" id="productSection">
+            <img src="https://i.imgur.com/DsOwZ6T.jpeg" alt="ThermaCool Cooling Vest - Multiple Views" class="product-image" id="productImage">
+
+            <h1 class="product-title">ThermaCool Cooling Vest</h1>
+            
+            <p class="product-description">
+                Designed specifically for oilfield workers, our advanced cooling vest provides all-day comfort in extreme heat conditions. With strategically placed cooling fans and a durable, lightweight design, stay focused on your work while we keep you cool.
+            </p>
+
+            <div class="features">
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Multiple integrated cooling fans for maximum airflow</li>
+                    <li>Lightweight, quilted design for comfort</li>
+                    <li>Durable construction for harsh work environments</li>
+                    <li>Adjustable fit with front zipper closure</li>
+                    <li>Front pocket for storage</li>
+                    <li>Battery-powered for extended use</li>
+                </ul>
+            </div>
+
+            <div class="price-section">
+                <span class="price-label">Select Your Currency:</span>
+                <div class="currency-selector">
+                    <button class="currency-btn active" data-currency="AED">AED</button>
+                    <button class="currency-btn" data-currency="USD">USD</button>
+                    <button class="currency-btn" data-currency="EUR">EUR</button>
+                    <button class="currency-btn" data-currency="GBP">GBP</button>
+                </div>
+                <div class="price-display">
+                    <span class="price" id="priceDisplay">150 AED</span>
+                    <span class="price-note">Base price: 150 AED</span>
+                </div>
+            </div>
+
+            <button class="purchase-btn" id="orderBtn">Order Now</button>
+        </div>
+
+        <div class="form-container" id="formContainer">
+            <h2 class="form-title">Purchase Order Form</h2>
+            <form id="purchaseForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company">
+                </div>
+
+                <div class="form-group">
+                    <label for="size">Vest Size *</label>
+                    <select id="size" name="size" required>
+                        <option value="">Select Size</option>
+                        <option value="S">Small</option>
+                        <option value="M">Medium</option>
+                        <option value="L">Large</option>
+                        <option value="XL">X-Large</option>
+                        <option value="XXL">XX-Large</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Quantity *</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Shipping Address *</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Additional Notes</label>
+                    <textarea id="notes" name="notes"></textarea>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" class="back-btn" id="backBtn">Back</button>
+                    <button type="submit" class="submit-btn">Submit Order</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="success-message" id="successMessage">
+            <div class="success-icon">&#10003;</div>
+            <div class="success-text">Order Submitted Successfully!</div>
+            <div class="success-subtext">We'll contact you shortly to confirm your order.</div>
+            <button class="purchase-btn" id="resetBtn" style="margin-top: 20px;">Place Another Order</button>
+        </div>
+    </div>
+
+    <script>
+        const conversionRates = {
+            AED: 1,
+            USD: 0.27,
+            EUR: 0.25,
+            GBP: 0.21
+        };
+
+        const currencySymbols = {
+            AED: 'AED',
+            USD: '$',
+            EUR: '€',
+            GBP: '£'
+        };
+
+        let currentCurrency = 'AED';
+        const basePrice = 150;
+
+        document.querySelectorAll('.currency-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const currency = this.getAttribute('data-currency');
+                currentCurrency = currency;
+                
+                document.querySelectorAll('.currency-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                const convertedPrice = (basePrice * conversionRates[currency]).toFixed(2);
+                const symbol = currencySymbols[currency];
+                
+                if (currency === 'AED') {
+                    document.getElementById('priceDisplay').textContent = convertedPrice + ' ' + symbol;
+                } else {
+                    document.getElementById('priceDisplay').textContent = symbol + convertedPrice;
+                }
+            });
+        });
+
+        document.getElementById('orderBtn').addEventListener('click', function() {
+            document.getElementById('productSection').style.display = 'none';
+            document.getElementById('formContainer').classList.add('active');
+        });
+
+        document.getElementById('backBtn').addEventListener('click', function() {
+            document.getElementById('formContainer').classList.remove('active');
+            document.getElementById('productSection').style.display = 'block';
+        });
+
+        document.getElementById('purchaseForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('formContainer').classList.remove('active');
+            document.getElementById('successMessage').classList.add('active');
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            document.getElementById('purchaseForm').reset();
+            document.getElementById('successMessage').classList.remove('active');
+            document.getElementById('productSection').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
