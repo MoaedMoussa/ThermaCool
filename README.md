@@ -1,2 +1,0 @@
-# ThermaCool
-FWS310
