@@ -18,7 +18,6 @@
             color: #ffffff;
         }
 
-        /* Navigation */
         .navbar {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -27,6 +26,9 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
@@ -54,7 +56,22 @@
             opacity: 1;
         }
 
-        /* Hero Section */
+        .track-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .track-btn:hover {
+            background: white;
+            color: #667eea;
+        }
+
         .hero-section {
             padding: 80px 5%;
             max-width: 1400px;
@@ -95,6 +112,11 @@
             border-radius: 15px;
             text-align: center;
             backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
         }
 
         .stat-number {
@@ -153,7 +175,6 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
-        /* Features Section */
         .features-section {
             padding: 80px 5%;
             background: rgba(0, 0, 0, 0.2);
@@ -203,7 +224,6 @@
             line-height: 1.6;
         }
 
-        /* Pricing Section */
         .pricing-section {
             padding: 80px 5%;
             max-width: 800px;
@@ -255,7 +275,6 @@
             font-size: 16px;
         }
 
-        /* Order Form */
         .order-form {
             background: rgba(255, 255, 255, 0.15);
             padding: 50px;
@@ -341,7 +360,6 @@
             box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
         }
 
-        /* Processing Screen */
         .processing-screen {
             display: none;
             position: fixed;
@@ -384,7 +402,6 @@
             opacity: 0.8;
         }
 
-        /* Success Screen */
         .success-screen {
             display: none;
             position: fixed;
@@ -470,7 +487,207 @@
             font-weight: 900;
         }
 
-        /* Footer */
+        .track-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9998;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .track-modal.active {
+            display: flex;
+        }
+
+        .track-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 600px;
+            width: 90%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+
+        .track-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .track-input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .track-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .track-input:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .track-submit {
+            width: 100%;
+            padding: 16px;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .track-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .status-view {
+            display: none;
+        }
+
+        .status-view.active {
+            display: block;
+        }
+
+        .status-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .status-id {
+            opacity: 0.8;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 70px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 21px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .timeline-item.completed .timeline-dot {
+            background: #4ade80;
+            border-color: #4ade80;
+        }
+
+        .timeline-item.active .timeline-dot {
+            background: white;
+            border-color: white;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .timeline-item.active .timeline-content {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid white;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .timeline-time {
+            font-size: 13px;
+            opacity: 0.7;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .error-msg {
+            background: rgba(239, 68, 68, 0.2);
+            border: 2px solid rgba(239, 68, 68, 0.5);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .error-msg.active {
+            display: block;
+        }
+
         .footer {
             padding: 40px 5%;
             text-align: center;
@@ -483,7 +700,6 @@
             margin-bottom: 10px;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -516,19 +732,16 @@
     </style>
 </head>
 <body>
-    <!-- Main Content -->
     <div id="mainContent">
-        <!-- Navigation -->
         <nav class="navbar">
             <div class="logo">THERMACOOL</div>
             <div class="nav-links">
                 <a class="nav-link" id="featuresLink">Features</a>
                 <a class="nav-link" id="pricingLink">Pricing</a>
-                <a class="nav-link" id="orderLink">Order</a>
+                <button class="track-btn" id="trackOrderBtn">Track Order</button>
             </div>
         </nav>
 
-        <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-grid">
                 <div class="hero-text">
@@ -541,7 +754,7 @@
                             <div class="stat-label">Temp Drop</div>
                         </div>
                         <div class="stat-box">
-                            <div class="stat-number">8 Hours</div>
+                            <div class="stat-number">14 Hours</div>
                             <div class="stat-label">Battery Life</div>
                         </div>
                         <div class="stat-box">
@@ -562,7 +775,6 @@
             </div>
         </section>
 
-        <!-- Features Section -->
         <section class="features-section" id="featuresSection">
             <h2 class="section-title">Key Features</h2>
             <div class="features-grid">
@@ -574,7 +786,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">🔋</div>
                     <h3 class="feature-title">Long Battery Life</h3>
-                    <p class="feature-text">Up to 8 hours of continuous cooling with USB-C fast charging.</p>
+                    <p class="feature-text">Up to 14 hours of continuous cooling with USB-C fast charging.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🛡️</div>
@@ -599,7 +811,6 @@
             </div>
         </section>
 
-        <!-- Pricing Section -->
         <section class="pricing-section" id="pricingSection">
             <h2 class="section-title">Get Yours Today</h2>
             
@@ -615,7 +826,6 @@
                 <div class="price-note">Free shipping across UAE</div>
             </div>
 
-            <!-- Order Form -->
             <div class="order-form">
                 <h3 class="form-title">Place Your Order</h3>
                 <form id="orderForm">
@@ -671,21 +881,39 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="footer">
             <p class="footer-text">&copy; 2025 ThermaCool. Keeping workers cool since 2025.</p>
             <p class="footer-text">📧 info@thermacool.com | 📞 02-THERMA-COOL</p>
         </footer>
     </div>
 
-    <!-- Processing Screen -->
+    <div class="track-modal" id="trackModal">
+        <div class="track-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            
+            <div id="trackInput">
+                <h3 class="track-title">Track Your Order</h3>
+                <input type="text" class="track-input" id="orderIdInput" placeholder="Enter Order ID (e.g., TC12345678)">
+                <button class="track-submit" id="trackSubmitBtn">Track Order</button>
+                <div class="error-msg" id="errorMsg">Order ID not found. Please check and try again.</div>
+            </div>
+
+            <div class="status-view" id="statusView">
+                <div class="status-header">
+                    <h3>Order Status</h3>
+                    <div class="status-id">Order ID: <span id="displayOrderId"></span></div>
+                </div>
+                <div class="timeline" id="timeline"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="processing-screen" id="processingScreen">
         <div class="spinner"></div>
         <div class="processing-text">Processing Your Order...</div>
         <div class="processing-subtext">Please wait while we confirm your details</div>
     </div>
 
-    <!-- Success Screen -->
     <div class="success-screen" id="successScreen">
         <div class="success-card">
             <div class="success-icon">✓</div>
@@ -700,97 +928,49 @@
     </div>
 
     <script>
-        // Currency conversion system
-        const rates = {
-            AED: 1,
-            USD: 0.27,
-            EUR: 0.25,
-            GBP: 0.21
-        };
-
-        const symbols = {
-            AED: 'AED',
-            USD: '$',
-            EUR: '€',
-            GBP: '£'
-        };
-
+        const orders = {};
+        const rates = { AED: 1, USD: 0.27, EUR: 0.25, GBP: 0.21 };
+        const symbols = { AED: 'AED', USD: '$', EUR: '€', GBP: '£' };
         let currentCurrency = 'AED';
         const basePrice = 150;
 
-        // Currency button handling
-        document.querySelectorAll('.currency-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Remove active from all buttons
-                document.querySelectorAll('.currency-btn').forEach(b => b.classList.remove('active'));
-                
-                // Add active to clicked button
-                this.classList.add('active');
-                
-                // Get currency
-                currentCurrency = this.getAttribute('data-currency');
-                
-                // Calculate price
-                const price = (basePrice * rates[currentCurrency]).toFixed(2);
-                const symbol = symbols[currentCurrency];
-                
-                // Update display
-                if (currentCurrency === 'AED') {
-                    document.getElementById('priceDisplay').textContent = price + ' ' + symbol;
-                } else {
-                    document.getElementById('priceDisplay').textContent = symbol + price;
-                }
-            });
-        });
-
-        // Scroll functions
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Scroll function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        document.getElementById('learnMoreBtn').addEventListener('click', () => {
-            scrollToSection('featuresSection');
-        });
+        // Navigation buttons
+        document.getElementById('featuresLink').addEventListener('click', () => scrollToSection('featuresSection'));
+        document.getElementById('pricingLink').addEventListener('click', () => scrollToSection('pricingSection'));
+        document.getElementById('orderNowBtn').addEventListener('click', () => scrollToSection('pricingSection'));
+        document.getElementById('learnMoreBtn').addEventListener('click', () => scrollToSection('featuresSection'));
 
-        document.getElementById('orderNowBtn').addEventListener('click', () => {
-            scrollToSection('pricingSection');
-        });
-
-        document.getElementById('featuresLink').addEventListener('click', () => {
-            scrollToSection('featuresSection');
-        });
-
-        document.getElementById('pricingLink').addEventListener('click', () => {
-            scrollToSection('pricingSection');
-        });
-
-        document.getElementById('orderLink').addEventListener('click', () => {
-            scrollToSection('pricingSection');
+        // Currency buttons
+        document.querySelectorAll('.currency-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.currency-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentCurrency = this.getAttribute('data-currency');
+                const price = (basePrice * rates[currentCurrency]).toFixed(2);
+                const symbol = symbols[currentCurrency];
+                document.getElementById('priceDisplay').textContent = currentCurrency === 'AED' ? price + ' ' + symbol : symbol + price;
+            });
         });
 
         // Form submission
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form data
             const formData = new FormData(this);
             const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
+            formData.forEach((value, key) => { data[key] = value; });
             
-            // Generate order ID
             const orderId = 'TC' + Date.now().toString().slice(-8);
-            
-            // Show processing screen
+            orders[orderId] = { ...data, timestamp: Date.now(), currency: currentCurrency, price: document.getElementById('priceDisplay').textContent };
+
             document.getElementById('processingScreen').classList.add('active');
             
-            // Simulate processing (2.5 seconds)
             setTimeout(() => {
-                // Hide processing
                 document.getElementById('processingScreen').classList.remove('active');
-                
-                // Log order details
                 console.log('=== NEW ORDER ===');
                 console.log('Order ID:', orderId);
                 console.log('Name:', data.fullName);
@@ -805,20 +985,91 @@
                 console.log('Price:', document.getElementById('priceDisplay').textContent);
                 console.log('================');
                 
-                // Show success screen
                 document.getElementById('orderIdDisplay').textContent = orderId;
                 document.getElementById('successScreen').classList.add('active');
-                
-                // Reset form
                 this.reset();
             }, 2500);
         });
 
-        // Place another order button
+        // Place another order
         document.getElementById('placeAnotherBtn').addEventListener('click', () => {
             document.getElementById('successScreen').classList.remove('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Track order modal
+        document.getElementById('trackOrderBtn').addEventListener('click', () => {
+            document.getElementById('trackModal').classList.add('active');
+            document.getElementById('trackInput').style.display = 'block';
+            document.getElementById('statusView').classList.remove('active');
+            document.getElementById('errorMsg').classList.remove('active');
+            document.getElementById('orderIdInput').value = '';
+        });
+
+        document.getElementById('closeModal').addEventListener('click', () => {
+            document.getElementById('trackModal').classList.remove('active');
+        });
+
+        document.getElementById('trackModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('trackModal')) {
+                document.getElementById('trackModal').classList.remove('active');
+            }
+        });
+
+        // Track order submission
+        document.getElementById('trackSubmitBtn').addEventListener('click', () => {
+            const orderId = document.getElementById('orderIdInput').value.trim().toUpperCase();
+            if (!orderId) {
+                document.getElementById('errorMsg').classList.add('active');
+                return;
+            }
+
+            const order = orders[orderId];
+            if (!order) {
+                document.getElementById('errorMsg').classList.add('active');
+                return;
+            }
+
+            document.getElementById('errorMsg').classList.remove('active');
+            document.getElementById('trackInput').style.display = 'none';
+            document.getElementById('displayOrderId').textContent = orderId;
+            displayStatus(order);
+            document.getElementById('statusView').classList.add('active');
+        });
+
+        // Enter key for tracking
+        document.getElementById('orderIdInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                document.getElementById('trackSubmitBtn').click();
+            }
+        });
+
+        // Display order status
+        function displayStatus(order) {
+            const now = Date.now();
+            const orderTime = order.timestamp;
+            const mins = Math.floor((now - orderTime) / 60000);
+
+            const stages = [
+                { title: 'Order Received', desc: 'Your order has been successfully placed and confirmed.', time: new Date(orderTime).toLocaleString(), completed: true },
+                { title: 'Processing', desc: 'We are preparing your ThermaCool vest for shipment.', time: mins >= 30 ? new Date(orderTime + 30 * 60000).toLocaleString() : 'In Progress', completed: mins >= 30, active: mins < 30 },
+                { title: 'Quality Check', desc: 'Your vest is undergoing final quality inspection.', time: mins >= 60 ? new Date(orderTime + 60 * 60000).toLocaleString() : 'Pending', completed: mins >= 60, active: mins >= 30 && mins < 60 },
+                { title: 'Shipped', desc: 'Your order has been dispatched and is on its way.', time: mins >= 120 ? new Date(orderTime + 120 * 60000).toLocaleString() : 'Pending', completed: mins >= 120, active: mins >= 60 && mins < 120 },
+                { title: 'Out for Delivery', desc: 'Your package is out for delivery and will arrive soon.', time: mins >= 180 ? new Date(orderTime + 180 * 60000).toLocaleString() : 'Pending', completed: mins >= 180, active: mins >= 120 && mins < 180 },
+                { title: 'Delivered', desc: 'Your ThermaCool vest has been delivered. Stay cool!', time: mins >= 240 ? new Date(orderTime + 240 * 60000).toLocaleString() : 'Pending', completed: mins >= 240, active: mins >= 180 && mins < 240 }
+            ];
+
+            document.getElementById('timeline').innerHTML = stages.map(stage => `
+                <div class="timeline-item ${stage.completed ? 'completed' : ''} ${stage.active ? 'active' : ''}">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">${stage.title}</div>
+                        <div class="timeline-time">${stage.time}</div>
+                        <div class="timeline-desc">${stage.desc}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
     </script>
 </body>
 </html>
